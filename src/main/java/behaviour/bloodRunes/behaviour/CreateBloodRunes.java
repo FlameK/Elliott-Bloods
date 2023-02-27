@@ -31,9 +31,8 @@ public class CreateBloodRunes extends Leaf
 		Data.scriptStatus = "Creating Blood Runes";
 		int bloodRuneCount = Inventory.stream().id(BloodRuneData.BLOOD_RUNE).first().getStack();
 		GameObject altar = Objects.stream().id(BloodRuneData.BLOOD_ALTAR).action("Bind").firstOrNull();
-		if (altar != null)
+		if (altar != null && altar.interact("Bind"))
 		{
-			altar.interact("Bind");
 			MethodProvider.sleepUntil(() -> Inventory.stream().id(BloodRuneData.BLOOD_RUNE).first().getStack() > bloodRuneCount, 5000);
 		}
 

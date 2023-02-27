@@ -30,12 +30,10 @@ public class NavigateToDarkAltar extends Leaf
 			GameObject rocks = Objects.stream().id(BloodRuneData.ROCK_ID).action("Climb").nearest().firstOrNull();
 			if (!LocalPlayer.isAnimating())
 			{
-				if (rocks != null)
+				if (rocks != null && rocks.interact("Climb"))
 				{
-					if (rocks.interact("Climb"))
-					{
-						MethodProvider.sleepUntil(() -> !BloodRuneData.DENSE_ESSENCE_AREA.contains(Players.local()), 5000);
-					}
+					MethodProvider.sleepUntil(() -> !BloodRuneData.DENSE_ESSENCE_AREA.contains(Players.local()), 5000);
+					return ReactionGenerator.getPredictable();
 				}
 				Movement.builder(BloodRuneData.ROCK_TILE)
 						.setRunMin(15)
@@ -61,12 +59,9 @@ public class NavigateToDarkAltar extends Leaf
 
 		Data.scriptStatus = "Venerating Dense Essence";
 		GameObject darkAltar = Objects.stream().id(BloodRuneData.DARK_ALTAR).action("Venerate").nearest().firstOrNull();
-		if (darkAltar != null)
+		if (darkAltar != null && darkAltar.interact("Venerate"))
 		{
-			if (darkAltar.interact("Venerate"))
-			{
-				MethodProvider.sleepUntil(LocalPlayer::isAnimating, 5000);
-			}
+			MethodProvider.sleepUntil(LocalPlayer::isAnimating, 5000);
 		}
 
 		return ReactionGenerator.getPredictable();

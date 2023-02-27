@@ -6,7 +6,6 @@ import api.ReactionGenerator;
 import api.data.Data;
 import api.framework.Leaf;
 import behaviour.bloodRunes.data.BloodRuneData;
-import org.powbot.api.rt4.GrandExchange;
 import org.powbot.api.rt4.Inventory;
 import org.powbot.api.rt4.Item;
 
@@ -25,9 +24,8 @@ public class ActivateBloodEssence extends Leaf
 		Data.scriptStatus = "Activating Blood Essence";
 		Item bloodEssence = Inventory.stream().id(BloodRuneData.BLOOD_ESSENCE).first();
 
-		if (bloodEssence != null)
+		if (bloodEssence != null && bloodEssence.interact("Activate"))
 		{
-			bloodEssence.interact("Activate");
 			MethodProvider.sleepUntil(() -> Inventory.stream().id(BloodRuneData.BLOOD_ESSENCE_ACTIVE).count() > 0, 5000);
 		}
 

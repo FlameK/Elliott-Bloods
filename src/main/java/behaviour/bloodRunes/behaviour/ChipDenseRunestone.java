@@ -28,12 +28,9 @@ public class ChipDenseRunestone extends Leaf
 		{
 			Data.scriptStatus = "Mining dense runestone";
 			GameObject denseRunestone = Objects.stream().name("Dense runestone").action("Chip").nearest().first();
-			if (denseRunestone != null)
+			if (denseRunestone != null && denseRunestone.interact("Chip"))
 			{
-				if (denseRunestone.interact("Chip"))
-				{
-					MethodProvider.sleepUntil(LocalPlayer::isAnimating, 10000, ReactionGenerator.getPredictable());
-				}
+				MethodProvider.sleepUntil(LocalPlayer::isAnimating, 10000, ReactionGenerator.getPredictable());
 			}
 			return ReactionGenerator.getPredictable();
 		}
