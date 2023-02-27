@@ -32,7 +32,7 @@ public class ChipDenseRunestone extends Leaf
 			{
 				if (denseRunestone.interact("Chip"))
 				{
-					MethodProvider.sleepUntil(LocalPlayer::isAnimating, 10000, ReactionGenerator.getNormal());
+					MethodProvider.sleepUntil(LocalPlayer::isAnimating, 10000, ReactionGenerator.getPredictable());
 				}
 			}
 			return ReactionGenerator.getPredictable();

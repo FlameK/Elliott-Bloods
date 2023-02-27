@@ -34,7 +34,7 @@ public class NavigateToDarkAltar extends Leaf
 				{
 					if (rocks.interact("Climb"))
 					{
-						MethodProvider.sleepUntil(() -> !BloodRuneData.DENSE_ESSENCE_AREA.contains(Players.local()), ReactionGenerator.getNormal());
+						MethodProvider.sleepUntil(() -> !BloodRuneData.DENSE_ESSENCE_AREA.contains(Players.local()), ReactionGenerator.getPredictable());
 					}
 				}
 				Movement.builder(BloodRuneData.ROCK_TILE)
@@ -63,7 +63,7 @@ public class NavigateToDarkAltar extends Leaf
 		{
 			if (darkAltar.interact("Venerate"))
 			{
-				MethodProvider.sleepUntil(LocalPlayer::isAnimating, ReactionGenerator.getAFK());
+				MethodProvider.sleepUntil(LocalPlayer::isAnimating, 5000);
 			}
 		}
 
