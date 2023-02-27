@@ -8,14 +8,6 @@ import org.powbot.api.Tile;
 
 public class BloodRuneData
 {
-	public static int bloodEssenceUsed;
-	public static int totalCosts;
-	@Getter
-	@Setter
-	public static int bloodRuneMuleThreshold = 25000;
-	@Getter
-	@Setter
-	public static int bloodEssenceRestockAmount = 9;
 	public static final int BLOOD_RUNE = 565;
 	public static final int BLOOD_ESSENCE = 26390;
 	public static final int BLOOD_ESSENCE_ACTIVE = 26392;
@@ -46,5 +38,6 @@ public class BloodRuneData
 	public static final Area DARK_ALTAR_AREA = new Area(new Tile(1710, 3891, 0), new Tile(1740, 3863, 0));
 	public static final Tile DARK_ALTAR_TILE = new Tile(1719, 3882, 0);
 	public static final Tile ROCK_TILE = new Tile(1761, 3872, 0);
+	public static final int ROCK_ID = 34741;
 
 }

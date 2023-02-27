@@ -35,10 +35,10 @@ public class ChipDenseRunestone extends Leaf
 					MethodProvider.sleepUntil(LocalPlayer::isAnimating, 10000, ReactionGenerator.getNormal());
 				}
 			}
-			return ReactionGenerator.getNormal();
+			return ReactionGenerator.getPredictable();
 		}
 
 		Data.scriptStatus = "Idle while Mining";
-		return ReactionGenerator.getNormal();
+		return ReactionGenerator.getPredictable();
 	}
 }

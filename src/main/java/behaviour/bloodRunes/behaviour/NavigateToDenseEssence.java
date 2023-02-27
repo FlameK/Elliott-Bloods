@@ -29,6 +29,6 @@ public class NavigateToDenseEssence extends Leaf
 				})
 				.move();
 
-		return ReactionGenerator.getNormal();
+		return ReactionGenerator.getPredictable();
 	}
 }

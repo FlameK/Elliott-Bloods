@@ -28,6 +28,6 @@ public class NavigateToBloodAltar extends Leaf
 				.setRunMax(80)
 				.setWalkUntil(() -> BloodRuneData.BLOOD_RUNE_ALTAR_AREA.contains(Players.local()))
 				.move();
-		return ReactionGenerator.getNormal();
+		return ReactionGenerator.getPredictable();
 	}
 }

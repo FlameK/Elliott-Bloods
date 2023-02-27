@@ -30,7 +30,8 @@ public class eBloods extends AbstractScript
 				.addString("Current Branch: ", () -> Tree.currentBranch)
 				.addString("Current Leaf: ", () -> Tree.currentLeaf)
 				.trackInventoryItem(BloodRuneData.BLOOD_RUNE, "Blood Runes Made: ", TrackInventoryOption.QuantityChangeIncOny)
-				.trackInventoryItem(BloodRuneData.BLOOD_RUNE, "Profit: ", TrackInventoryOption.Price)
+				.trackInventoryItem(BloodRuneData.BLOOD_RUNE, "Blood Rune Value: ", TrackInventoryOption.Price)
+				.trackInventoryItem(BloodRuneData.BLOOD_ESSENCE_ACTIVE, "Blood Essence Used: ", TrackInventoryOption.QuantityChangeIncOny)
 				.build());
 
 

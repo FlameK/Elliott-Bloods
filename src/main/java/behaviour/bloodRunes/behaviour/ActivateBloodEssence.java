@@ -28,12 +28,8 @@ public class ActivateBloodEssence extends Leaf
 		if (bloodEssence != null)
 		{
 			bloodEssence.interact("Activate");
-			MethodProvider.sleepUntil(() -> Inventory.stream().id(BloodRuneData.BLOOD_ESSENCE_ACTIVE).first() != null, 1000);
-			return ReactionGenerator.getPredictable();
+			MethodProvider.sleepUntil(() -> Inventory.stream().id(BloodRuneData.BLOOD_ESSENCE_ACTIVE).count() > 0, 5000);
 		}
-
-		BloodRuneData.totalCosts += GrandExchange.getItemPrice(BloodRuneData.BLOOD_ESSENCE);
-		BloodRuneData.bloodEssenceUsed++;
 
 		return ReactionGenerator.getPredictable();
 	}

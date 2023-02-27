@@ -27,7 +27,7 @@ public class NavigateToDarkAltar extends Leaf
 		if (BloodRuneData.DENSE_ESSENCE_AREA.contains(Players.local()))
 		{
 			Data.scriptStatus = "Using Shortcut";
-			GameObject rocks = Objects.stream().id(34741).action("Climb").nearest().firstOrNull();
+			GameObject rocks = Objects.stream().id(BloodRuneData.ROCK_ID).action("Climb").nearest().firstOrNull();
 			if (!LocalPlayer.isAnimating())
 			{
 				if (rocks != null)
@@ -40,10 +40,10 @@ public class NavigateToDarkAltar extends Leaf
 				Movement.builder(BloodRuneData.ROCK_TILE)
 						.setRunMin(15)
 						.setRunMax(80)
-						.setWalkUntil(() -> Objects.stream().id(34741).action("Climb").nearest() != null)
+						.setWalkUntil(() -> Objects.stream().id(BloodRuneData.ROCK_ID).action("Climb").nearest() != null)
 						.move();
 			}
-			return ReactionGenerator.getNormal();
+			return ReactionGenerator.getPredictable();
 		}
 
 		if (!BloodRuneData.DARK_ALTAR_AREA.contains(Players.local()))
@@ -54,7 +54,7 @@ public class NavigateToDarkAltar extends Leaf
 					.setRunMax(80)
 					.setWalkUntil(() -> BloodRuneData.DARK_ALTAR_AREA.contains(Players.local()))
 					.move();
-			return ReactionGenerator.getNormal();
+			return ReactionGenerator.getPredictable();
 		}
 
 		Data.scriptStatus = "Venerating Dense Essence";
@@ -67,6 +67,6 @@ public class NavigateToDarkAltar extends Leaf
 			}
 		}
 
-		return ReactionGenerator.getNormal();
+		return ReactionGenerator.getPredictable();
 	}
 }
