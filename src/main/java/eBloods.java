@@ -27,10 +27,10 @@ public class eBloods extends AbstractScript
 				.y(45)
 				.trackSkill(Skill.Runecrafting)
 				.addString("Status: ", () -> Data.scriptStatus)
-				.addString("Current Branch", () -> Tree.currentBranch)
-				.addString("Current Leaf", () -> Tree.currentLeaf)
+				.addString("Current Branch: ", () -> Tree.currentBranch)
+				.addString("Current Leaf: ", () -> Tree.currentLeaf)
 				.trackInventoryItem(BloodRuneData.BLOOD_RUNE, "Blood Runes Made: ", TrackInventoryOption.QuantityChangeIncOny)
-				.trackInventoryItem(BloodRuneData.BLOOD_RUNE, "Profit:", TrackInventoryOption.Price)
+				.trackInventoryItem(BloodRuneData.BLOOD_RUNE, "Profit: ", TrackInventoryOption.Price)
 				.build());
 
 
