@@ -34,12 +34,13 @@ public class NavigateToDarkAltar extends Leaf
 				{
 					if (rocks.interact("Climb"))
 					{
-						MethodProvider.sleepUntil(() -> !BloodRuneData.DENSE_ESSENCE_AREA.contains(Players.local()), ReactionGenerator.getPredictable());
+						MethodProvider.sleepUntil(() -> !BloodRuneData.DENSE_ESSENCE_AREA.contains(Players.local()), 5000);
 					}
 				}
 				Movement.builder(BloodRuneData.ROCK_TILE)
 						.setRunMin(15)
 						.setRunMax(80)
+						.setUseTeleports(false)
 						.setWalkUntil(() -> Objects.stream().id(BloodRuneData.ROCK_ID).action("Climb").nearest() != null)
 						.move();
 			}
@@ -52,6 +53,7 @@ public class NavigateToDarkAltar extends Leaf
 			Movement.builder(BloodRuneData.DARK_ALTAR_TILE)
 					.setRunMin(15)
 					.setRunMax(80)
+					.setUseTeleports(false)
 					.setWalkUntil(() -> BloodRuneData.DARK_ALTAR_AREA.contains(Players.local()))
 					.move();
 			return ReactionGenerator.getPredictable();

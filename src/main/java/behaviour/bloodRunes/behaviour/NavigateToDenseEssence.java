@@ -22,6 +22,7 @@ public class NavigateToDenseEssence extends Leaf
 		Movement.builder(BloodRuneData.DENSE_ESSENCE_AREA.getRandomTile())
 				.setRunMin(15)
 				.setRunMax(75)
+				.setUseTeleports(false)
 				.setWalkUntil(() ->
 				{
 					GameObject denseEssence = Objects.stream().name("Dense runestone").action("Chip").nearest().firstOrNull();

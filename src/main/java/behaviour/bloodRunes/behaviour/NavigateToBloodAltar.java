@@ -26,6 +26,7 @@ public class NavigateToBloodAltar extends Leaf
 		Movement.builder(BloodRuneData.BLOOD_RUNE_ALTAR_TILE)
 				.setRunMin(15)
 				.setRunMax(80)
+				.setUseTeleports(false)
 				.setWalkUntil(() -> BloodRuneData.BLOOD_RUNE_ALTAR_AREA.contains(Players.local()))
 				.move();
 		return ReactionGenerator.getPredictable();
