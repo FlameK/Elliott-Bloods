@@ -5,18 +5,13 @@ import api.framework.Tree;
 import api.data.Data;
 import behaviour.bloodRunes.behaviour.*;
 import behaviour.bloodRunes.data.BloodRuneData;
-import com.google.common.eventbus.Subscribe;
 import lombok.Getter;
-import org.powbot.api.event.InventoryChangeEvent;
-import org.powbot.api.rt4.Bank;
-import org.powbot.api.rt4.GrandExchange;
-import org.powbot.api.rt4.Players;
 import org.powbot.api.rt4.walking.model.Skill;
 import org.powbot.api.script.*;
 import org.powbot.api.script.paint.PaintBuilder;
 import org.powbot.api.script.paint.TrackInventoryOption;
 
-@ScriptManifest(name = "Lost Bloods", description = "Private Blood Rune Script", version = "v0.1")
+@ScriptManifest(name = "eBloods", description = "Creates Blood runes in Arceuus", version = "v0.1")
 public class eBloods extends AbstractScript
 {
 
