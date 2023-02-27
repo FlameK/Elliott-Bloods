@@ -8,10 +8,6 @@ import org.powbot.api.Tile;
 
 public class BloodRuneData
 {
-	public static int startRunecraftingLevel;
-	public static int startBloodRuneCount;
-	public static int bloodRunesMade;
-	public static int bloodRunePrice;
 	public static int bloodEssenceUsed;
 	public static int totalCosts;
 	@Getter
@@ -20,7 +16,6 @@ public class BloodRuneData
 	@Getter
 	@Setter
 	public static int bloodEssenceRestockAmount = 9;
-
 	public static final int BLOOD_RUNE = 565;
 	public static final int BLOOD_ESSENCE = 26390;
 	public static final int BLOOD_ESSENCE_ACTIVE = 26392;
@@ -30,8 +25,6 @@ public class BloodRuneData
 	public static final int CHISEL = 1755;
 	public static final int BLOOD_ALTAR = 27978;
 	public static final int DARK_ALTAR = 27979;
-
-
 	public static final Area DENSE_ESSENCE_AREA = new Area(
 			new Tile(1767, 3875, 0),
 			new Tile(1751, 3869, 0),
@@ -41,7 +34,6 @@ public class BloodRuneData
 			new Tile(1774, 3838, 0),
 			new Tile(1773, 3863, 0)
 	);
-
 	public static final Area BLOOD_RUNE_ALTAR_AREA = new Area(
 			new Tile(1709, 3832, 0),
 			new Tile(1712, 3838, 0),
@@ -54,8 +46,5 @@ public class BloodRuneData
 	public static final Area DARK_ALTAR_AREA = new Area(new Tile(1710, 3891, 0), new Tile(1740, 3863, 0));
 	public static final Tile DARK_ALTAR_TILE = new Tile(1719, 3882, 0);
 	public static final Tile ROCK_TILE = new Tile(1761, 3872, 0);
-
-	public static final Area ZEAH = new Area(new Tile(1544, 3968, 0), new Tile(1801, 3810, 0));
-
 
 }

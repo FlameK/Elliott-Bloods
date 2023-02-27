@@ -27,8 +27,6 @@ public class eBloods extends AbstractScript
 	public void onStart()
 	{
 
-		GrandExchange.getItemPrice(BloodRuneData.BLOOD_RUNE);
-
 		addPaint(PaintBuilder.newBuilder()
 				.x(40)
 				.y(45)
