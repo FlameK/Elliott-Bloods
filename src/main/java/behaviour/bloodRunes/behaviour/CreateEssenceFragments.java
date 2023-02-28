@@ -35,11 +35,12 @@ public class CreateEssenceFragments extends Leaf
 			return ReactionGenerator.getPredictable();
 		}
 
-
 		Item chisel = Inventory.stream().id(BloodRuneData.CHISEL).first();
 		Item essence = Inventory.stream().id(BloodRuneData.DARK_ESSENCE_BLOCK).first();
 
-		if (Inventory.selectedItem().id() == -1 && Inventory.stream().id(BloodRuneData.DARK_ESSENCE_BLOCK).count() > 0)
+		if (chisel.valid()
+				&& Inventory.selectedItem().id() == -1
+				&& Inventory.stream().id(BloodRuneData.DARK_ESSENCE_BLOCK).count() > 0)
 		{
 			Data.scriptStatus = "Selecting Chisel";
 			chisel.finteract("Use");

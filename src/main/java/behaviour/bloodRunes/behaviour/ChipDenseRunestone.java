@@ -1,7 +1,5 @@
 package behaviour.bloodRunes.behaviour;
 
-
-import api.MethodProvider;
 import api.ReactionGenerator;
 import api.data.Data;
 import api.framework.Leaf;
@@ -25,6 +23,14 @@ public class ChipDenseRunestone extends Leaf
 	@Override
 	public int onLoop()
 	{
+
+		if (!Inventory.stream().name("Chisel").first().valid()
+				|| !Inventory.stream().filter(x -> x.name().contains("pickaxe")).first().valid())
+		{
+			Data.scriptStatus = "No chisel or pickaxe found.";
+			return ReactionGenerator.getPredictable();
+		}
+
 		if (!LocalPlayer.isAnimating())
 		{
 			Data.scriptStatus = "Mining dense runestone";
