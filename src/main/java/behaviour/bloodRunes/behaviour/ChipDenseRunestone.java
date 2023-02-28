@@ -1,15 +1,13 @@
 package behaviour.bloodRunes.behaviour;
 
+import api.CarriedItems;
 import api.ReactionGenerator;
 import api.data.Data;
 import api.framework.Leaf;
 import api.handlers.LocalPlayer;
 import behaviour.bloodRunes.data.BloodRuneData;
 import org.powbot.api.Condition;
-import org.powbot.api.rt4.GameObject;
-import org.powbot.api.rt4.Inventory;
-import org.powbot.api.rt4.Objects;
-import org.powbot.api.rt4.Players;
+import org.powbot.api.rt4.*;
 
 public class ChipDenseRunestone extends Leaf
 {
@@ -24,10 +22,9 @@ public class ChipDenseRunestone extends Leaf
 	public int onLoop()
 	{
 
-		if (!Inventory.stream().name("Chisel").first().valid()
-				|| !Inventory.stream().filter(x -> x.name().contains("pickaxe")).first().valid())
+		if (!CarriedItems.contains(x -> x.name().contains("pickaxe")))
 		{
-			Data.scriptStatus = "No chisel or pickaxe found.";
+			Data.scriptStatus = "No chisel found.";
 			return ReactionGenerator.getPredictable();
 		}
 
