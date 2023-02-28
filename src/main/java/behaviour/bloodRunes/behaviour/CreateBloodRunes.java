@@ -32,7 +32,7 @@ public class CreateBloodRunes extends Leaf
 		int bloodRuneCount = Inventory.stream().id(BloodRuneData.BLOOD_RUNE).first().getStack();
 		GameObject altar = Objects.stream().id(BloodRuneData.BLOOD_ALTAR_ID).action("Bind").first();
 
-		if (altar.valid() && altar.finteract("Bind"))
+		if (altar.valid() && altar.interact("Bind"))
 		{
 			Condition.wait(() -> Inventory.stream().id(BloodRuneData.BLOOD_RUNE).first().getStack() > bloodRuneCount, 500, 10);
 		}

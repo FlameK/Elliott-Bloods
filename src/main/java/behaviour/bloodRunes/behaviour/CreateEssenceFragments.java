@@ -43,12 +43,12 @@ public class CreateEssenceFragments extends Leaf
 				&& Inventory.stream().id(BloodRuneData.DARK_ESSENCE_BLOCK).count() > 0)
 		{
 			Data.scriptStatus = "Selecting Chisel";
-			chisel.finteract("Use");
+			chisel.interact("Use");
 		}
 		else if (Inventory.selectedItem().id() == chisel.id())
 		{
 			Data.scriptStatus = "Using Chisel on Dark Essence Block";
-			essence.finteract("Use");
+			essence.interact("Use");
 		}
 		return ReactionGenerator.getLowPredictable();
 	}

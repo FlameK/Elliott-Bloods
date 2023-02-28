@@ -23,7 +23,7 @@ public class ActivateBloodEssence extends Leaf
 		Data.scriptStatus = "Activating Blood Essence";
 		Item bloodEssence = Inventory.stream().id(BloodRuneData.BLOOD_ESSENCE).first();
 
-		if (bloodEssence.valid() && bloodEssence.finteract("Activate"))
+		if (bloodEssence.valid() && bloodEssence.interact("Activate"))
 		{
 			Condition.wait(() -> Inventory.stream().id(BloodRuneData.BLOOD_ESSENCE_ACTIVE).count() > 0, 500, 10);
 		}

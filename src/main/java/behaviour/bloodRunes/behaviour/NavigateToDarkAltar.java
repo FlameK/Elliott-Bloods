@@ -29,7 +29,7 @@ public class NavigateToDarkAltar extends Leaf
 			GameObject rocks = Objects.stream().id(BloodRuneData.ROCK_ID).action("Climb").nearest().first();
 			if (!LocalPlayer.isAnimating())
 			{
-				if (rocks.valid() && rocks.finteract("Climb"))
+				if (rocks.valid() && rocks.interact("Climb"))
 				{
 					Condition.wait(() -> !BloodRuneData.DENSE_ESSENCE_AREA.contains(Players.local()), 500, 25);
 					return ReactionGenerator.getPredictable();
@@ -60,7 +60,7 @@ public class NavigateToDarkAltar extends Leaf
 		GameObject darkAltar = Objects.stream().id(BloodRuneData.DARK_ALTAR_ID).action("Venerate").first();
 		long darkEssenceCount = Inventory.stream().id(BloodRuneData.DARK_ESSENCE_BLOCK).count();
 
-		if (darkAltar.valid() && darkAltar.finteract("Venerate"))
+		if (darkAltar.valid() && darkAltar.interact("Venerate"))
 		{
 			Condition.wait(() -> Inventory.stream().id(BloodRuneData.DARK_ESSENCE_BLOCK).count() > darkEssenceCount, 500, 10);
 		}

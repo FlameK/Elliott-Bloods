@@ -27,7 +27,7 @@ public class NavigateToDenseEssence extends Leaf
 		if (BloodRuneData.BLOOD_RUNE_ALTAR_AREA.contains(Players.local()))
 		{
 			GameObject denseEssence = Objects.stream().id(BloodRuneData.SHORTCUT_ROCK_W_ID).action("Climb").first();
-			if (denseEssence.valid() && denseEssence.finteract("Climb"))
+			if (denseEssence.valid() && denseEssence.interact("Climb"))
 			{
 				Condition.wait(() -> BloodRuneData.DENSE_ESSENCE_AREA.contains(Players.local()), 100, 25);
 				return ReactionGenerator.getPredictable();
@@ -48,7 +48,7 @@ public class NavigateToDenseEssence extends Leaf
 			GameObject rocks = Objects.stream().id(BloodRuneData.ROCK_ID).action("Climb").nearest().first();
 			if (!LocalPlayer.isAnimating())
 			{
-				if (rocks.valid() && rocks.finteract("Climb"))
+				if (rocks.valid() && rocks.interact("Climb"))
 				{
 					Condition.wait(() -> !BloodRuneData.DENSE_ESSENCE_AREA.contains(Players.local()), 500, 25);
 					return ReactionGenerator.getPredictable();
