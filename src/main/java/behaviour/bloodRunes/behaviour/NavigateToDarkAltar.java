@@ -1,13 +1,12 @@
 package behaviour.bloodRunes.behaviour;
 
-import api.MethodProvider;
 import api.ReactionGenerator;
 import api.data.Data;
 import api.framework.Leaf;
 import api.handlers.LocalPlayer;
 import behaviour.bloodRunes.data.BloodRuneData;
+import org.powbot.api.Condition;
 import org.powbot.api.rt4.*;
-import org.powbot.api.rt4.walking.model.Skill;
 
 public class NavigateToDarkAltar extends Leaf
 {
@@ -27,19 +26,19 @@ public class NavigateToDarkAltar extends Leaf
 		if (BloodRuneData.DENSE_ESSENCE_AREA.contains(Players.local()))
 		{
 			Data.scriptStatus = "Using Shortcut";
-			GameObject rocks = Objects.stream().id(BloodRuneData.ROCK_ID).action("Climb").nearest().firstOrNull();
+			GameObject rocks = Objects.stream().id(BloodRuneData.ROCK_ID).action("Climb").nearest().first();
 			if (!LocalPlayer.isAnimating())
 			{
-				if (rocks != null && rocks.interact("Climb"))
+				if (rocks.valid() && rocks.finteract("Climb"))
 				{
-					MethodProvider.sleepUntil(() -> !BloodRuneData.DENSE_ESSENCE_AREA.contains(Players.local()), 5000);
+					Condition.wait(() -> !BloodRuneData.DENSE_ESSENCE_AREA.contains(Players.local()), 500, 25);
 					return ReactionGenerator.getPredictable();
 				}
-				Movement.builder(BloodRuneData.ROCK_TILE)
+				Movement.builder(BloodRuneData.SHORTCUT_ROCK_TILE_S)
 						.setRunMin(15)
 						.setRunMax(80)
 						.setUseTeleports(false)
-						.setWalkUntil(() -> Objects.stream().id(BloodRuneData.ROCK_ID).action("Climb").nearest() != null)
+						.setWalkUntil(() -> BloodRuneData.SHORTCUT_ROCK_TILE_N.equals(Players.local().tile()))
 						.move();
 			}
 			return ReactionGenerator.getPredictable();
@@ -58,10 +57,12 @@ public class NavigateToDarkAltar extends Leaf
 		}
 
 		Data.scriptStatus = "Venerating Dense Essence";
-		GameObject darkAltar = Objects.stream().id(BloodRuneData.DARK_ALTAR).action("Venerate").nearest().firstOrNull();
-		if (darkAltar != null && darkAltar.interact("Venerate"))
+		GameObject darkAltar = Objects.stream().id(BloodRuneData.DARK_ALTAR_ID).action("Venerate").first();
+		long darkEssenceCount = Inventory.stream().id(BloodRuneData.DARK_ESSENCE_BLOCK).count();
+
+		if (darkAltar.valid() && darkAltar.finteract("Venerate"))
 		{
-			MethodProvider.sleepUntil(LocalPlayer::isAnimating, 5000);
+			Condition.wait(() -> Inventory.stream().id(BloodRuneData.DARK_ESSENCE_BLOCK).count() > darkEssenceCount, 500, 10);
 		}
 
 		return ReactionGenerator.getPredictable();

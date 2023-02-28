@@ -1,7 +1,7 @@
 package api.framework;
 
-import api.Random;
 import org.powbot.api.Condition;
+import org.powbot.api.Random;
 
 import java.util.Collections;
 import java.util.LinkedList;
@@ -42,7 +42,7 @@ public abstract class Branch extends Leaf
 					return tLeaf.onLoop();
 				}).orElseGet(() ->
 				{
-					Condition.sleep(Random.asInt(300, 600));
+					Condition.sleep(Random.nextInt(300, 600));
 					return 0;
 				});
 	}

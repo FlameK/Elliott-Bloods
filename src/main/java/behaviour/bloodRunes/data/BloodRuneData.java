@@ -15,8 +15,8 @@ public class BloodRuneData
 	public static final int DARK_ESSENCE_BLOCK = 13446;
 	public static final int DENSE_ESSENCE_BLOCK = 13445;
 	public static final int CHISEL = 1755;
-	public static final int BLOOD_ALTAR = 27978;
-	public static final int DARK_ALTAR = 27979;
+	public static final int BLOOD_ALTAR_ID = 27978;
+	public static final int DARK_ALTAR_ID = 27979;
 	public static final int ROCK_ID = 34741;
 
 
@@ -38,8 +38,11 @@ public class BloodRuneData
 			new Tile(1719, 3821, 0),
 			new Tile(1710, 3824, 0));
 	public static final Tile BLOOD_RUNE_ALTAR_TILE = new Tile(1720, 3829, 0);
-	public static final Area DARK_ALTAR_AREA = new Area(new Tile(1710, 3891, 0), new Tile(1740, 3863, 0));
-	public static final Tile DARK_ALTAR_TILE = new Tile(1719, 3882, 0);
-	public static final Tile ROCK_TILE = new Tile(1761, 3872, 0);
+	public static final Area DARK_ALTAR_AREA = new Area(new Tile(1744, 3862, 0), new Tile(1702, 3897, 0));
+	public static final Tile DARK_ALTAR_TILE = new Tile(1719, 3883, 0);
+	public static final Tile SHORTCUT_ROCK_TILE_S = new Tile(1761, 3872, 0);
+	public static final Tile SHORTCUT_ROCK_TILE_N = new Tile(1761, 3874, 0);
+	public static final Tile SHORTCUT_ROCK_TILE_W = new Tile(1742, 3854, 0);
+	public static final int SHORTCUT_ROCK_W_ID = 27984;
 
 }

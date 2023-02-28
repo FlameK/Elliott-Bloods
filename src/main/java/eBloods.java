@@ -1,17 +1,17 @@
 import api.ContinueDialogue;
-import api.MethodProvider;
 import api.ZoomOut;
 import api.framework.Tree;
 import api.data.Data;
 import behaviour.bloodRunes.behaviour.*;
 import behaviour.bloodRunes.data.BloodRuneData;
 import lombok.Getter;
+import org.powbot.api.Condition;
 import org.powbot.api.rt4.walking.model.Skill;
 import org.powbot.api.script.*;
 import org.powbot.api.script.paint.PaintBuilder;
 import org.powbot.api.script.paint.TrackInventoryOption;
 
-@ScriptManifest(name = "eBloods", description = "Creates Blood runes in Arceuus", version = "v0.1")
+@ScriptManifest(name = "eBloods", description = "Creates Blood runes in Arceuus.", version = "v0.1")
 public class eBloods extends AbstractScript
 {
 
@@ -51,7 +51,7 @@ public class eBloods extends AbstractScript
 	@Override
 	public void poll()
 	{
-		MethodProvider.sleep(tree.onLoop());
+		Condition.sleep(tree.onLoop());
 	}
 
 	public static void main(String[] args)

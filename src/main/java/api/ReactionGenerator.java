@@ -47,4 +47,18 @@ public class ReactionGenerator
 		return (int) nextReactionTime(30, 10, 0.02, 0.01, 30, 500);
 	}
 
+	public static int getLowPredictable()
+	{
+		return (int) nextReactionTime(15, 5, 0.01, 0.005, 20, 300);
+	}
+
+	public static int getNormal()
+	{
+		return (int) nextReactionTime(200, 50, 0.007, 0.2, 100, 2000);
+	}
+
+	public static int getAFK()
+	{
+		return (int) nextReactionTime(5000, 2000, 5, 0.1, 200, 100000);
+	}
 }

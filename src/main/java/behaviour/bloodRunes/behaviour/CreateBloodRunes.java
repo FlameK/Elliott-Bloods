@@ -6,6 +6,7 @@ import api.ReactionGenerator;
 import api.data.Data;
 import api.framework.Leaf;
 import behaviour.bloodRunes.data.BloodRuneData;
+import org.powbot.api.Condition;
 import org.powbot.api.rt4.*;
 
 public class CreateBloodRunes extends Leaf
@@ -25,15 +26,16 @@ public class CreateBloodRunes extends Leaf
 		if (Inventory.selectedItem().id() > -1)
 		{
 			Data.scriptStatus = "Deselecting Chisel";
-			chisel.click();
+			chisel.fclick();
 		}
 
 		Data.scriptStatus = "Creating Blood Runes";
 		int bloodRuneCount = Inventory.stream().id(BloodRuneData.BLOOD_RUNE).first().getStack();
-		GameObject altar = Objects.stream().id(BloodRuneData.BLOOD_ALTAR).action("Bind").firstOrNull();
-		if (altar != null && altar.interact("Bind"))
+		GameObject altar = Objects.stream().id(BloodRuneData.BLOOD_ALTAR_ID).action("Bind").first();
+
+		if (altar.valid() && altar.finteract("Bind"))
 		{
-			MethodProvider.sleepUntil(() -> Inventory.stream().id(BloodRuneData.BLOOD_RUNE).first().getStack() > bloodRuneCount, 5000);
+			Condition.wait(() -> Inventory.stream().id(BloodRuneData.BLOOD_RUNE).first().getStack() > bloodRuneCount, 500, 10);
 		}
 
 		return ReactionGenerator.getPredictable();

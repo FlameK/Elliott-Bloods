@@ -38,17 +38,18 @@ public class CreateEssenceFragments extends Leaf
 
 		Item chisel = Inventory.stream().id(BloodRuneData.CHISEL).first();
 		Item essence = Inventory.stream().id(BloodRuneData.DARK_ESSENCE_BLOCK).first();
+
 		if (Inventory.selectedItem().id() == -1 && Inventory.stream().id(BloodRuneData.DARK_ESSENCE_BLOCK).count() > 0)
 		{
 			Data.scriptStatus = "Selecting Chisel";
-			chisel.interact("Use");
+			chisel.finteract("Use");
 		}
 		else if (Inventory.selectedItem().id() == chisel.id())
 		{
 			Data.scriptStatus = "Using Chisel on Dark Essence Block";
-			essence.interact("Use");
+			essence.finteract("Use");
 		}
-		return ReactionGenerator.getPredictable();
+		return ReactionGenerator.getLowPredictable();
 	}
 
 	private boolean createAtDarkAltar()
