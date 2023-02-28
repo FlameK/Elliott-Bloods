@@ -24,7 +24,7 @@ public class ChipDenseRunestone extends Leaf
 
 		if (!CarriedItems.contains(x -> x.name().contains("pickaxe")))
 		{
-			Data.scriptStatus = "No chisel found.";
+			Data.scriptStatus = "No pickaxe found.";
 			return ReactionGenerator.getPredictable();
 		}
 
