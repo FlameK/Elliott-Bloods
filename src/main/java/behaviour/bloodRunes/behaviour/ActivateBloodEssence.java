@@ -1,7 +1,5 @@
 package behaviour.bloodRunes.behaviour;
 
-
-import api.MethodProvider;
 import api.ReactionGenerator;
 import api.data.Data;
 import api.framework.Leaf;
