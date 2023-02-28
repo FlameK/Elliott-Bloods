@@ -1,8 +1,5 @@
 package behaviour.bloodRunes.data;
 
-
-import lombok.Getter;
-import lombok.Setter;
 import org.powbot.api.Area;
 import org.powbot.api.Tile;
 
