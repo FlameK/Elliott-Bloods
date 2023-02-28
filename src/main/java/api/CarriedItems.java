@@ -1,6 +1,5 @@
 package api;
 
-import org.powbot.api.rt4.Bank;
 import org.powbot.api.rt4.Equipment;
 import org.powbot.api.rt4.Inventory;
 import org.powbot.api.rt4.Item;
