@@ -24,7 +24,7 @@ public class NavigateToDenseEssence extends Leaf
 		// I've noticed that Movement Builder doesn't always use shortcuts.
 		// So I've gone the following way to ensure shortcuts are used to increase efficiency.
 
-		if (BloodRuneData.BLOOD_RUNE_ALTAR_AREA.contains(Players.local()))
+		if (BloodRuneData.BLOOD_RUNE_ALTAR_AREA.contains(Players.local()) || BloodRuneData.SHORTCUT_AREA_TOP_OF_SLOPE.contains(Players.local()))
 		{
 			GameObject denseEssence = Objects.stream().id(BloodRuneData.SHORTCUT_ROCK_W_ID).action("Climb").first();
 			if (denseEssence.valid() && denseEssence.interact("Climb"))
@@ -36,7 +36,6 @@ public class NavigateToDenseEssence extends Leaf
 			Movement.builder(BloodRuneData.SHORTCUT_ROCK_TILE_W)
 					.setRunMin(15)
 					.setRunMax(75)
-					.setUseTeleports(false)
 					.setWalkUntil(() -> Objects.stream().id(BloodRuneData.SHORTCUT_ROCK_W_ID).action("Climb").first().valid())
 					.move();
 			return ReactionGenerator.getPredictable();
@@ -56,7 +55,6 @@ public class NavigateToDenseEssence extends Leaf
 				Movement.builder(BloodRuneData.SHORTCUT_ROCK_TILE_N)
 						.setRunMin(15)
 						.setRunMax(75)
-						.setUseTeleports(false)
 						.setWalkUntil(() -> BloodRuneData.SHORTCUT_ROCK_TILE_S.equals(Players.local().tile()))
 						.move();
 			}
@@ -67,7 +65,6 @@ public class NavigateToDenseEssence extends Leaf
 		Movement.builder(BloodRuneData.DENSE_ESSENCE_AREA.getCentralTile())
 				.setRunMin(15)
 				.setRunMax(75)
-				.setUseTeleports(false)
 				.setWalkUntil(() -> Objects.stream().name("Dense runestone").action("Chip").first().valid())
 				.move();
 

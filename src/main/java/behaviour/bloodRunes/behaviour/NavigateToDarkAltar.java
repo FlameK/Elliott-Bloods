@@ -37,7 +37,6 @@ public class NavigateToDarkAltar extends Leaf
 				Movement.builder(BloodRuneData.SHORTCUT_ROCK_TILE_S)
 						.setRunMin(15)
 						.setRunMax(80)
-						.setUseTeleports(false)
 						.setWalkUntil(() -> BloodRuneData.SHORTCUT_ROCK_TILE_N.equals(Players.local().tile()))
 						.move();
 			}

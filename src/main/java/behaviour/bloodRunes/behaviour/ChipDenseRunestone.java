@@ -7,6 +7,8 @@ import api.framework.Leaf;
 import api.handlers.LocalPlayer;
 import behaviour.bloodRunes.data.BloodRuneData;
 import org.powbot.api.Condition;
+import org.powbot.api.InteractionManager;
+import org.powbot.api.ModelInteractionType;
 import org.powbot.api.rt4.*;
 
 public class ChipDenseRunestone extends Leaf
@@ -32,9 +34,19 @@ public class ChipDenseRunestone extends Leaf
 		{
 			Data.scriptStatus = "Mining dense runestone";
 			GameObject denseRunestone = Objects.stream().name("Dense runestone").action("Chip").nearest().first();
-			if (denseRunestone.valid() && denseRunestone.interact("Chip"))
+
+			if (denseRunestone.valid())
 			{
-				Condition.wait(LocalPlayer::isAnimating, 500, 20);
+				if (!denseRunestone.inViewport())
+				{
+					Movement.step(denseRunestone);
+					System.out.println("Stepping to dense runestone");
+					Condition.wait(() -> denseRunestone.inViewport(), 500, 20);
+					return ReactionGenerator.getPredictable();
+				}
+				if (denseRunestone.interact("Chip")) {
+					Condition.wait(LocalPlayer::isAnimating, 500, 20);
+				}
 			}
 			return ReactionGenerator.getPredictable();
 		}
