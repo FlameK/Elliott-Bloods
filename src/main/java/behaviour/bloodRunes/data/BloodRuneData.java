@@ -41,6 +41,5 @@ public class BloodRuneData
 	public static final Tile SHORTCUT_ROCK_TILE_N = new Tile(1761, 3874, 0);
 	public static final Tile SHORTCUT_ROCK_TILE_W = new Tile(1742, 3854, 0);
 	public static final int SHORTCUT_ROCK_W_ID = 27984;
-	public static final Area SHORTCUT_AREA_TOP_OF_SLOPE = new Area(new Tile(1737, 3857, 0), new Tile(1745, 3847, 0));
-
+	public static final Area SHORTCUT_AREA_TOP_OF_SLOPE = new Area(new Tile(1726, 3861, 0), new Tile(1743, 3833, 0));
 }
