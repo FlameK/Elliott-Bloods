@@ -35,7 +35,15 @@ public class BloodRuneData
 			new Tile(1719, 3821, 0),
 			new Tile(1710, 3824, 0));
 	public static final Tile BLOOD_RUNE_ALTAR_TILE = new Tile(1720, 3829, 0);
-	public static final Area DARK_ALTAR_AREA = new Area(new Tile(1744, 3862, 0), new Tile(1702, 3897, 0));
+	public static final Area DARK_ALTAR_AREA = new Area(
+        new Tile(1702, 3897, 0),
+        new Tile(1704, 3868, 0),
+        new Tile(1748, 3863, 0),
+        new Tile(1758, 3871, 0),
+        new Tile(1760, 3872, 0),
+        new Tile(1770, 3875, 0),
+        new Tile(1770, 3884, 0));
+	public static final Area DARK_ALTAR_AREA_SMALL = new Area(new Tile(1706, 3893, 0), new Tile(1733, 3870, 0));
 	public static final Tile DARK_ALTAR_TILE = new Tile(1719, 3883, 0);
 	public static final Tile SHORTCUT_ROCK_TILE_S = new Tile(1761, 3872, 0);
 	public static final Tile SHORTCUT_ROCK_TILE_N = new Tile(1761, 3874, 0);

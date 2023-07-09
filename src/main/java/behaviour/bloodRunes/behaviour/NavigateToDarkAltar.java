@@ -43,14 +43,14 @@ public class NavigateToDarkAltar extends Leaf
 			return ReactionGenerator.getPredictable();
 		}
 
-		if (!BloodRuneData.DARK_ALTAR_AREA.contains(Players.local()))
+		if (!BloodRuneData.DARK_ALTAR_AREA_SMALL.contains(Players.local()))
 		{
 			Data.scriptStatus = "Walking to Dark Altar";
 			Movement.builder(BloodRuneData.DARK_ALTAR_TILE)
 					.setRunMin(15)
 					.setRunMax(80)
 					.setUseTeleports(false)
-					.setWalkUntil(() -> BloodRuneData.DARK_ALTAR_AREA.contains(Players.local()))
+					.setWalkUntil(() -> BloodRuneData.DARK_ALTAR_AREA_SMALL.contains(Players.local()))
 					.move();
 			return ReactionGenerator.getPredictable();
 		}

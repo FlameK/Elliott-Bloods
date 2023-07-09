@@ -55,7 +55,7 @@ public class CreateEssenceFragments extends Leaf
 
 	private boolean createAtDarkAltar()
 	{
-		return BloodRuneData.DARK_ALTAR_AREA.contains(Players.local())
+		return BloodRuneData.DARK_ALTAR_AREA_SMALL.contains(Players.local())
 				&& Inventory.stream().id(BloodRuneData.DARK_ESSENCE_BLOCK).count() >= 24
 				&& Inventory.isFull();
 	}
