@@ -37,6 +37,7 @@ public class NavigateToDenseEssence extends Leaf
 					.setRunMin(15)
 					.setRunMax(75)
 					.setWalkUntil(() -> Objects.stream().id(BloodRuneData.SHORTCUT_ROCK_W_ID).action("Climb").first().valid())
+					.setUseTeleports(false)
 					.move();
 			return ReactionGenerator.getPredictable();
 		}
@@ -56,6 +57,7 @@ public class NavigateToDenseEssence extends Leaf
 						.setRunMin(15)
 						.setRunMax(75)
 						.setWalkUntil(() -> BloodRuneData.SHORTCUT_ROCK_TILE_S.equals(Players.local().tile()))
+						.setUseTeleports(false)
 						.move();
 			}
 			return ReactionGenerator.getPredictable();
@@ -66,6 +68,7 @@ public class NavigateToDenseEssence extends Leaf
 				.setRunMin(15)
 				.setRunMax(75)
 				.setWalkUntil(() -> Objects.stream().name("Dense runestone").action("Chip").first().valid())
+				.setUseTeleports(false)
 				.move();
 
 		return ReactionGenerator.getPredictable();
